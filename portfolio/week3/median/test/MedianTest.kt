@@ -15,6 +15,23 @@ class MedianTest : FreeSpec({
             median(listOf())
         }
     }
+    // A list containing one value will have that value as its median
+    "Median of on value" {
+        meidan(listOf(5.0f)) shouldBe (5.0f plusOrMinus tolerance)
+    }
 
-    // Write four more tests here
+    // An even list uses the mean of the two middle value
+    "Median of even sized lists" {
+        median(listOf(1.0f, 3.0f, 5.0f, 7.0f)) shouldBe (4.0f plusOrMinus tolerance)
+    }
+
+    // An odd list has only one middle value once sorted
+    "Median of odd sized lists" {
+        median(listOf(1.0f, 3.0f, 5.0f)) shouldBe (3.0f plusOrMinus tolerance)
+    }
+
+    // An unsorted list is sorted before findidng the median
+    "unsorted list" {
+        median(listOf(9.0f, 1.0f, 5.0f, 3.0f, 7.0f)) shouldBe (5.0f plusOrMinus tolerance)
+    }
 })
