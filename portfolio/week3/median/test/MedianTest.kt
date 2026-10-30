@@ -16,8 +16,8 @@ class MedianTest : FreeSpec({
         }
     }
     // A list containing one value will have that value as its median
-    "Median of on value" {
-        meidan(listOf(5.0f)) shouldBe (5.0f plusOrMinus tolerance)
+    "Median of one value" {
+        median(listOf(5.0f)) shouldBe (5.0f plusOrMinus tolerance)
     }
 
     // An even list uses the mean of the two middle value
